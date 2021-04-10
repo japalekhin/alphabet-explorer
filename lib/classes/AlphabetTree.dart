@@ -19,10 +19,12 @@ class AlphabetTree {
   AlphabetTree.random({
     required int depth,
     int maxWidth = defaultMaxWidth,
+    int minWidth = 0,
   }) : this.letter = Letters.randomLetter() {
     if (depth > 1) {
       final Random random = Random();
-      final int childrenCount = random.nextInt(maxWidth);
+      maxWidth = max(minWidth, maxWidth);
+      final int childrenCount = minWidth + random.nextInt(maxWidth - minWidth);
       for (int i = 0; i < childrenCount; i++) {
         AlphabetTree randomTree = AlphabetTree.random(depth: depth - 1);
         randomTree.parent = this;
