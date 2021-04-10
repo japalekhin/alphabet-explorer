@@ -13,8 +13,9 @@ class AlphabetTree {
     this.children = children ?? this.children;
   }
 
-  AlphabetTree.random({required int depth})
-      : this.letter = Letters.randomLetter() {
+  AlphabetTree.random({
+    required int depth,
+  }) : this.letter = Letters.randomLetter() {
     final Random random = Random();
 
     final int childrenCount = random.nextInt(5);
