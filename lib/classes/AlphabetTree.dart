@@ -4,6 +4,7 @@ import 'package:alphabet_explorer/helpers/Letters.dart';
 
 class AlphabetTree {
   final String letter;
+  AlphabetTree? parent;
   List<AlphabetTree> children = [];
 
   AlphabetTree({
@@ -11,6 +12,7 @@ class AlphabetTree {
     List<AlphabetTree>? children,
   }) {
     this.children = children ?? this.children;
+    this.children.forEach((child) => child.parent = this);
   }
 
   AlphabetTree.random({
@@ -20,7 +22,9 @@ class AlphabetTree {
 
     final int childrenCount = random.nextInt(5);
     for (int i = 0; i < childrenCount; i++) {
-      children.add(AlphabetTree.random(depth: depth - 1));
+      AlphabetTree randomTree = AlphabetTree.random(depth: depth - 1);
+      randomTree.parent = this;
+      children.add(randomTree);
     }
   }
 }
