@@ -1,6 +1,6 @@
 import 'dart:math';
 
-import 'package:alphabet_explorer/classes/AlphabetTree.dart';
+import 'package:alphabet_explorer/classes/alphabet-tree.dart';
 import 'package:flutter/material.dart';
 
 class AlphabetTreeWidget extends StatelessWidget {

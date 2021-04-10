@@ -1,4 +1,4 @@
-import 'package:alphabet_explorer/classes/AlphabetTree.dart';
+import 'package:alphabet_explorer/classes/alphabet-tree.dart';
 import 'package:alphabet_explorer/widgets/alphabet-tree.dart';
 import 'package:flutter/material.dart';
 
