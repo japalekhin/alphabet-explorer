@@ -12,7 +12,7 @@ class AlphabetTree {
     List<AlphabetTree>? children,
   }) {
     this.children = children ?? this.children;
-    this.children.forEach((child) => child.parent = this);
+    this.children.forEach((AlphabetTree child) => child.parent = this);
   }
 
   AlphabetTree.random({
@@ -26,5 +26,19 @@ class AlphabetTree {
       randomTree.parent = this;
       children.add(randomTree);
     }
+  }
+
+  List<String> get uniqueLetters {
+    List<String> letters = [];
+
+    letters.add(letter);
+    children.forEach((AlphabetTree child) {
+      letters.addAll(child.uniqueLetters);
+    });
+
+    letters = letters.toSet().toList();
+    letters.sort();
+
+    return letters;
   }
 }
