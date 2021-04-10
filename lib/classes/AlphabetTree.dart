@@ -18,13 +18,14 @@ class AlphabetTree {
   AlphabetTree.random({
     required int depth,
   }) : this.letter = Letters.randomLetter() {
-    final Random random = Random();
-
-    final int childrenCount = random.nextInt(5);
-    for (int i = 0; i < childrenCount; i++) {
-      AlphabetTree randomTree = AlphabetTree.random(depth: depth - 1);
-      randomTree.parent = this;
-      children.add(randomTree);
+    if (depth > 1) {
+      final Random random = Random();
+      final int childrenCount = random.nextInt(5);
+      for (int i = 0; i < childrenCount; i++) {
+        AlphabetTree randomTree = AlphabetTree.random(depth: depth - 1);
+        randomTree.parent = this;
+        children.add(randomTree);
+      }
     }
   }
 
