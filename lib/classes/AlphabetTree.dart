@@ -42,4 +42,15 @@ class AlphabetTree {
 
     return letters;
   }
+
+  void compare(AlphabetTree otherTree) {
+    List<String> allUniqueLetters = [
+      ...uniqueLetters,
+      ...otherTree.uniqueLetters,
+    ].toSet().toList();
+
+    allUniqueLetters.sort();
+
+    print(allUniqueLetters);
+  }
 }
