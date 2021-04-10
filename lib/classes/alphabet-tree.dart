@@ -1,6 +1,6 @@
 import 'dart:math';
 
-import 'package:alphabet_explorer/helpers/Letters.dart';
+import 'package:alphabet_explorer/helpers/letters.dart';
 
 class AlphabetTree {
   static const int defaultMaxWidth = 5;
