@@ -47,6 +47,22 @@ class AlphabetTree {
     return letters;
   }
 
+  int get depth {
+    int deepestDepth = 0;
+    children.forEach((AlphabetTree child) {
+      deepestDepth = max(deepestDepth, child.depth);
+    });
+    return deepestDepth + 1;
+  }
+
+  int get width {
+    int width = max(1, children.length);
+    children.forEach((AlphabetTree tree) {
+      width = max(width, tree.width);
+    });
+    return width;
+  }
+
   void compare(AlphabetTree otherTree) {
     List<String> allUniqueLetters = [
       ...uniqueLetters,
