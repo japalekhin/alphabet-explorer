@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:alphabet_explorer/helpers/Letters.dart';
 
 class AlphabetTree {
+  static const int defaultMaxWidth = 5;
   final String letter;
   AlphabetTree? parent;
   List<AlphabetTree> children = [];
@@ -17,10 +18,11 @@ class AlphabetTree {
 
   AlphabetTree.random({
     required int depth,
+    int maxWidth = defaultMaxWidth,
   }) : this.letter = Letters.randomLetter() {
     if (depth > 1) {
       final Random random = Random();
-      final int childrenCount = random.nextInt(5);
+      final int childrenCount = random.nextInt(maxWidth);
       for (int i = 0; i < childrenCount; i++) {
         AlphabetTree randomTree = AlphabetTree.random(depth: depth - 1);
         randomTree.parent = this;
