@@ -56,11 +56,11 @@ class AlphabetTree {
   }
 
   int get width {
-    int width = max(1, children.length);
-    children.forEach((AlphabetTree tree) {
-      width = max(width, tree.width);
+    int childrenWidth = 0;
+    children.forEach((AlphabetTree child) {
+      childrenWidth += child.width;
     });
-    return width;
+    return max(1, childrenWidth);
   }
 
   void compare(AlphabetTree otherTree) {
