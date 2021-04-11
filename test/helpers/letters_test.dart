@@ -50,12 +50,19 @@ void main() {
   });
 
   group('`getUniqueLetters`', () {
-    test('should return a unique letter', () {
-      List<String> letters = ['a', 'a', 'a', 'a', 'x'];
-      List<String> uniqueLetters = Letters.getUniqueLetters(letters);
-      expect(uniqueLetters.length, 2);
+    List<String> letters = ['z', 'x', 'a', 'a', 'a', 'a', 'x'];
+    List<String> uniqueLetters = Letters.getUniqueLetters(letters);
+
+    test('should return these letters', () {
+      expect(uniqueLetters.length, 3);
       expect(uniqueLetters.contains('a'), true);
       expect(uniqueLetters.contains('x'), true);
+      expect(uniqueLetters.contains('z'), true);
+    });
+
+    test('should be alphabetically arranged', () {
+      expect(uniqueLetters.first, 'a');
+      expect(uniqueLetters.last, 'z');
     });
   });
 }
