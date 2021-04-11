@@ -1,6 +1,10 @@
 import 'dart:math';
 
+/// A class to help with letter manipulation and generation.
+///
+/// All members are static.
 class Letters {
+  /// The `List` of allowed characters to be accepted as letters.
   static const List<String> letters = [
     'a',
     'b',
@@ -29,14 +33,18 @@ class Letters {
     'y',
     'z',
   ];
+
   static Random _random = Random();
 
+  /// A random letter generator.
   static String randomLetter() {
     return letters[_random.nextInt(letters.length)];
   }
 
   static List<String> getUniqueLetters(List<String> letters) {
+    // Convert to `Set` to eliminated duplicates then back to `List`.
     List<String> unique = letters.toSet().toList();
+
     unique.sort();
     return unique;
   }
