@@ -12,6 +12,8 @@ class AlphabetTree {
     required this.letter,
     List<AlphabetTree>? children,
   }) {
+    assert(letter.length == 1);
+    assert(Letters.letters.contains(letter.toLowerCase()));
     this.children = children ?? this.children;
     this.children.forEach((AlphabetTree child) => child.parent = this);
   }
