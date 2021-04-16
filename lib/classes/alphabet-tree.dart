@@ -80,11 +80,26 @@ class AlphabetTree {
 
   /// A printer for the unique set of letters for this tree and another.
   void compare(AlphabetTree otherTree) {
-    List<String> allUniqueLetters = Letters.getUniqueLetters([
-      ...uniqueLetters,
-      ...otherTree.uniqueLetters,
-    ]);
+    List<String> uniqueLettersInThisTree = [];
+    uniqueLetters.forEach((String letter) {
+      if (!otherTree.uniqueLetters.contains(letter)) {
+        uniqueLettersInThisTree.add(letter);
+      }
+    });
 
-    print(allUniqueLetters);
+    List<String> uniqueLettersInOtherTree = [];
+    otherTree.uniqueLetters.forEach((String letter) {
+      if (!uniqueLetters.contains(letter)) {
+        uniqueLettersInOtherTree.add(letter);
+      }
+    });
+
+    print('Between the two trees being compared:');
+
+    print('- The unique letters in this tree are:');
+    print(uniqueLettersInThisTree);
+
+    print('- The unique letters in the other tree are:');
+    print(uniqueLettersInOtherTree);
   }
 }
